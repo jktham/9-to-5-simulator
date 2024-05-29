@@ -1101,11 +1101,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Device: 1
-  m_PoseSource: 5
+  m_PoseSource: 4
   m_PoseProviderComponent: {fileID: 0}
-  m_TrackingType: 2
+  m_TrackingType: 0
   m_UpdateType: 0
-  m_UseRelativeTransform: 0
+  m_UseRelativeTransform: 1
 --- !u!114 &1709071660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,7 +1130,63 @@ MonoBehaviour:
       m_Id: 35f29fdf-059c-4f44-a589-d9f8720d8651
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 3D Vector
+        m_Id: 641eea9a-b68f-41c0-966a-8ff3bca18b6d
+        m_Path: 3DVector
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 4
+      - m_Name: up
+        m_Id: 5cce0534-f885-4140-9fd7-079d53c4b7f5
+        m_Path: <XRController>{LeftHand}/devicePosition/y
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 8
+      - m_Name: down
+        m_Id: bc3adf9d-7eb3-4ef3-9f71-16c81923a804
+        m_Path: <XRController>{LeftHand}/devicePosition/y
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 8
+      - m_Name: left
+        m_Id: 47378d8f-7d7a-4ce5-9306-388b996a957f
+        m_Path: <XRController>{LeftHand}/devicePosition/x
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 8
+      - m_Name: right
+        m_Id: 3633a789-2a1d-4046-98f4-ba7e1d639efe
+        m_Path: <XRController>{LeftHand}/devicePosition/x
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 8
+      - m_Name: forward
+        m_Id: c02be29d-40df-47ad-a4dd-43d89a085e5e
+        m_Path: <XRController>{LeftHand}/devicePosition/z
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 8
+      - m_Name: backward
+        m_Id: baef1f00-2d44-4b93-b6b0-af17058e659a
+        m_Path: <XRController>{LeftHand}/devicePosition/z
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 8
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_RotationInput:
@@ -1423,11 +1479,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Device: 1
-  m_PoseSource: 4
+  m_PoseSource: 5
   m_PoseProviderComponent: {fileID: 0}
-  m_TrackingType: 2
+  m_TrackingType: 0
   m_UpdateType: 0
-  m_UseRelativeTransform: 0
+  m_UseRelativeTransform: 1
 --- !u!114 &1921316557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,7 +1508,63 @@ MonoBehaviour:
       m_Id: 35f29fdf-059c-4f44-a589-d9f8720d8651
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 3D Vector
+        m_Id: 5cc1b467-fd2e-440a-92b3-231272fdce2d
+        m_Path: 3DVector
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 4
+      - m_Name: up
+        m_Id: e47f2dd0-c961-4e6a-982a-a4da79b7fda0
+        m_Path: <XRController>{RightHand}/devicePosition/y
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 8
+      - m_Name: down
+        m_Id: ee3f46b4-5c57-4839-a20a-f015d60e2d04
+        m_Path: <XRController>{RightHand}/devicePosition/y
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 8
+      - m_Name: left
+        m_Id: c05df3f6-99c8-4bd5-9539-0e3fc1aec7c2
+        m_Path: <XRController>{RightHand}/devicePosition/x
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 8
+      - m_Name: right
+        m_Id: ec875492-8d65-41b9-bc56-2bd22bda12a4
+        m_Path: <XRController>{RightHand}/devicePosition/x
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 8
+      - m_Name: forward
+        m_Id: 5146abd2-4001-48e2-8fec-cffab81c6e5c
+        m_Path: <XRController>{RightHand}/devicePosition/z
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 8
+      - m_Name: backward
+        m_Id: 6cdef384-6f8b-4759-bde0-d5cde4892ca0
+        m_Path: <XRController>{RightHand}/devicePosition/z
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position
+        m_Flags: 8
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_RotationInput:
