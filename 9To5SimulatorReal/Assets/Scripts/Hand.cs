@@ -30,12 +30,12 @@ public class Hand : MonoBehaviour
     }
 
     void Start() {
-        
+        Debug.Log(input.action.ReadValue<float>());
     }
 
     void Update() {
 
-        if (input.action.triggered)
+        if (input.action.ReadValue<float>() == 1.0f)
         {
             Debug.Log("Hello");
         }
