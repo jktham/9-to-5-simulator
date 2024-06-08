@@ -442,18 +442,6 @@ PrefabInstance:
       value: ConveyorBelt
       objectReference: {fileID: 0}
     - target: {fileID: 6278787405631238060, guid: 610cbab9d91cf4743a65136dd326dec7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6278787405631238060, guid: 610cbab9d91cf4743a65136dd326dec7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6278787405631238060, guid: 610cbab9d91cf4743a65136dd326dec7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6278787405631238060, guid: 610cbab9d91cf4743a65136dd326dec7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.25
       objectReference: {fileID: 0}
@@ -1898,7 +1886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inHand: {fileID: 0}
-  carrycontrol: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+  carrycontrol: {fileID: 1709071660}
   carry: 0
 --- !u!4 &1728787461 stripped
 Transform:
@@ -2156,7 +2144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inHand: {fileID: 0}
-  carrycontrol: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+  carrycontrol: {fileID: 1921316557}
   carry: 0
 --- !u!1 &2018781190
 GameObject:
@@ -5062,22 +5050,6 @@ PrefabInstance:
     - target: {fileID: 3894934916786306144, guid: 610cbab9d91cf4743a65136dd326dec7, type: 3}
       propertyPath: m_Name
       value: ConveyorBelt
-      objectReference: {fileID: 0}
-    - target: {fileID: 5210261568927134815, guid: 610cbab9d91cf4743a65136dd326dec7, type: 3}
-      propertyPath: conveyorForce
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6278787405631238060, guid: 610cbab9d91cf4743a65136dd326dec7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6278787405631238060, guid: 610cbab9d91cf4743a65136dd326dec7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6278787405631238060, guid: 610cbab9d91cf4743a65136dd326dec7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6278787405631238060, guid: 610cbab9d91cf4743a65136dd326dec7, type: 3}
       propertyPath: m_LocalPosition.x

@@ -13,13 +13,11 @@ public class CBBehaviour : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other) {
-        Console.WriteLine("Object on conveyor");
-        if (other.CompareTag("Interactable"))
+    void OnTriggerStay(Collider other) {
+        if (other.gameObject.CompareTag("Interactable"))
         {
-            Console.WriteLine("MOVING");
-            Vector3 force = new Vector3(conveyorForce * Time.deltaTime, 0f, 0f);
-            other.GetComponent<Rigidbody>().AddForce(force, ForceMode.Force);
+            Vector3 force = new Vector3(conveyorForce * 100 * Time.deltaTime, 0f, 0f);
+            other.gameObject.GetComponent<Rigidbody>().AddForce(force, ForceMode.Force);
         }
     }
 }

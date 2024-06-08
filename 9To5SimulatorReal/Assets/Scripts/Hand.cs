@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.XR;
 
 public class Hand : MonoBehaviour
 {
     public GameObject inHand;
-    public InputActionReference carrycontrol;
+    public TrackedPoseDriver carrycontrol;
     private bool interactableInRange = false;
     [SerializeField]
     private bool carry = false;
@@ -32,14 +33,14 @@ public class Hand : MonoBehaviour
 
         // Code for grabbing stuff
         if (other.gameObject.CompareTag("Interactable") && !carry) {
-            if (carrycontrol.action.triggered) {
+            if (carrycontrol.trackingStateInput.action.triggered) {
                 carry = true;
                 inHand = other.gameObject;
                 inHand.GetComponent<Rigidbody>().useGravity = false;
                 inHand.transform.SetParent(this.gameObject.transform);
             }
         } else if (inHand != null && carry) {
-            if (!carrycontrol.action.triggered) {
+            if (!carrycontrol.trackingStateInput.action.triggered) {
                 inHand.transform.SetParent(null);
                 inHand.GetComponent<Rigidbody>().useGravity = true;
                 inHand = null;
