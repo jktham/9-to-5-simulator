@@ -9,9 +9,11 @@ public class GameBehaviour : MonoBehaviour
     public int shiftInSeconds = 0;
     public int shiftInMinutes = 0;
     public int shiftInHours = 0;
+    public int wincondition = 3600 * 8;
     [SerializeField]
     private bool switchStartShift = false;
     public bool inShift = false;
+    public bool win = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,12 @@ public class GameBehaviour : MonoBehaviour
         // update both minutes and hours
         shiftInMinutes = shiftInSeconds / 60;
         shiftInHours = shiftInMinutes / 60;
+
+        // wincondition
+        if (shiftInSeconds >= wincondition && GameObject.FindGameObjectsWithTag("Interactable").Length == 0)
+        {
+            win = true;
+        }
     }
 
     public void startShift() {
