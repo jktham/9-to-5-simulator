@@ -1785,7 +1785,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -1776004433765298748, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   m_TrackingStateInput:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Tracking State
       m_Type: 1
@@ -1793,17 +1793,9 @@ MonoBehaviour:
       m_Id: 03dd14ab-428b-4eab-87c8-cebc4dd28e84
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: d47b1eb0-64e1-43d3-95dd-22b53a5cafc5
-        m_Path: <XRController>/isTracked
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Tracking State
-        m_Flags: 0
+      m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 6460240664377981861, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+    m_Reference: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   m_PositionAction:
     m_Name: 
     m_Type: 0
@@ -2043,7 +2035,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -1776004433765298748, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   m_TrackingStateInput:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Tracking State
       m_Type: 1
@@ -2061,7 +2053,7 @@ MonoBehaviour:
         m_Action: Tracking State
         m_Flags: 0
       m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   m_PositionAction:
     m_Name: 
     m_Type: 0
@@ -2281,7 +2273,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1325090041764224437, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.059
+      value: -1.13
       objectReference: {fileID: 0}
     - target: {fileID: 1325090041764224437, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5070,6 +5062,10 @@ PrefabInstance:
     - target: {fileID: 3894934916786306144, guid: 610cbab9d91cf4743a65136dd326dec7, type: 3}
       propertyPath: m_Name
       value: ConveyorBelt
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210261568927134815, guid: 610cbab9d91cf4743a65136dd326dec7, type: 3}
+      propertyPath: conveyorForce
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6278787405631238060, guid: 610cbab9d91cf4743a65136dd326dec7, type: 3}
       propertyPath: m_LocalScale.x
