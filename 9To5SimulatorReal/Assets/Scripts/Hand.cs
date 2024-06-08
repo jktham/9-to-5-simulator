@@ -23,14 +23,14 @@ public class Hand : MonoBehaviour
     void OnTriggerEnter(Collider other) {
 
         // Highlight when interactable in reach
-        if (other.gameObject.CompareTag("Interactable") && !carry && checkHands(otherHandControl)) {
+        if (other.gameObject.CompareTag("Interactable") && !carry && checkHands(other)) {
             Renderer handRender = this.gameObject.GetComponent<Renderer>();
             handRender.material.SetColor("_Color", Color.green);
             inRange = other;
         }
 
         // Highlight when special in reach
-        if (other.gameObject.CompareTag("Special") && !game.inShift && checkHands(otherHandControl)) {
+        if (other.gameObject.CompareTag("Special") && !game.inShift && checkHands(other)) {
             Renderer handRender = this.gameObject.GetComponent<Renderer>();
             handRender.material.SetColor("_Color", Color.yellow);
             inRange = other;
@@ -49,20 +49,16 @@ public class Hand : MonoBehaviour
 
     void OnTriggerStay(Collider other) {
 
-        Rigidbody myRigidBody = other.gameObject.GetComponent<Rigidbody>();
-
         // Picking stuff up
         if (other.gameObject.CompareTag("Interactable") && input.action.ReadValue<float>() == 1.0f 
-            && !carry && inRange != null)
+            && !carry && inRange == other)
         {
-            myRigidBody.useGravity = false;
-            this.gameObject.GetComponent<FixedJoint>().connectedBody = myRigidBody;
+            this.gameObject.GetComponent<FixedJoint>().connectedBody = other.gameObject.GetComponent<Rigidbody>();
 
             carry = true;
 
         } else if (other.gameObject.CompareTag("Interactable") && input.action.ReadValue<float>() == 0.0f && carry) {
 
-            myRigidBody.useGravity = true;
             this.gameObject.GetComponent<FixedJoint>().connectedBody = null;
             carry = false;
             
@@ -87,8 +83,8 @@ public class Hand : MonoBehaviour
         inRange = null;
     }
 
-    bool checkHands(Hand control) {
-        return otherHandControl.inRange == null || (otherHandControl.inRange != inRange);
+    bool checkHands(Collider other) {
+        return otherHandControl.inRange == null || (otherHandControl.inRange != other);
     }
 
 }
