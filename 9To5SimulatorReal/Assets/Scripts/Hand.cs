@@ -9,17 +9,15 @@ using UnityEngine.XR;
 public class Hand : MonoBehaviour
 {
     public GameObject inHand;
-    private GameBehaviour game;
+    public InputActionReference input;
 
     [SerializeField]
-    private bool inRange = false;
     private bool carry = false;
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Interactable") && !carry) {
             Renderer handRender = this.gameObject.GetComponent<Renderer>();
             handRender.material.SetColor("_Color", Color.green);
             inHand = other.gameObject;
-            inRange = true;
         }
     }
 
@@ -28,28 +26,27 @@ public class Hand : MonoBehaviour
             Renderer handRender = this.gameObject.GetComponent<Renderer>();
             handRender.material.SetColor("_Color", Color.white);
             inHand = null;
-            inRange = false;
         }
     }
 
     void Start() {
-        game = GameObject.Find("GameController").GetComponent<GameBehaviour>();
+        
     }
 
     void Update() {
 
-        if (game.interactGET())
+        if (input.action.triggered)
         {
             Debug.Log("Hello");
         }
 
-        if (inHand != null && game.interactGET())
+        if (inHand != null && input.action.triggered)
         {
             inHand.GetComponent<Rigidbody>().useGravity = false;
             inHand.transform.SetParent(this.gameObject.transform);
             carry = true;
 
-        } else if (inHand != null && !game.interactGET()) {
+        } else if (inHand != null && !input.action.triggered) {
 
             inHand.GetComponent<Rigidbody>().useGravity = true;
             inHand.transform.SetParent(null);

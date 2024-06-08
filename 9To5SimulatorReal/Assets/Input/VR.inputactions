@@ -25,7 +25,7 @@
                 },
                 {
                     "name": "Interact",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "d6bda6d3-dc97-46da-a1be-2d358b4aee71",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -52,6 +52,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f80a19b7-8930-43c2-87c5-9952f5ece651",
+                    "path": "<Keyboard>/#(E)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false

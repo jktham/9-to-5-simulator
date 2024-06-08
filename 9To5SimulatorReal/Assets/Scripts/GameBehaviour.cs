@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameBehaviour : MonoBehaviour
 {
@@ -12,11 +13,19 @@ public class GameBehaviour : MonoBehaviour
     public int shiftInHours = 0;
     public int wincondition = 3600 * 8;
 
-    private bool interact = false;
+    [SerializeField]
+    InputActionAsset input;
+
     [SerializeField]
     private bool switchStartShift = false;
     public bool inShift = false;
     public bool win = false;
+
+    protected void OnEnable() {
+        input.Enable();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,10 +54,6 @@ public class GameBehaviour : MonoBehaviour
         }
     }
 
-    void LateUpdate() {
-        interact = false;
-    }
-
     public void startShift() {
         StartCoroutine( StartShift() );
     }
@@ -69,11 +74,4 @@ public class GameBehaviour : MonoBehaviour
         }
     }
 
-    public void inputinteract() {
-        interact = true;
-    }
-
-    public bool interactGET() {
-        return interact;
-    }
 }
