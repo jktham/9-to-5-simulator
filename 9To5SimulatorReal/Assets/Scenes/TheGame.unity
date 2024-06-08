@@ -1781,7 +1781,15 @@ MonoBehaviour:
       m_Id: 03dd14ab-428b-4eab-87c8-cebc4dd28e84
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 3f0cd6a9-93cd-46d4-9d2c-ec237f912058
+        m_Path: <XRController>/isTracked
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Tracking State
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_PositionAction:
@@ -2031,7 +2039,15 @@ MonoBehaviour:
       m_Id: 03dd14ab-428b-4eab-87c8-cebc4dd28e84
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 626d7856-6621-4894-a7c6-c054f08b6fcd
+        m_Path: <XRController>/isTracked
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Tracking State
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_PositionAction:
