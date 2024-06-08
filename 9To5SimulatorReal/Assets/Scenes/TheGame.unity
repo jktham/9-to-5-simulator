@@ -1135,7 +1135,7 @@ MonoBehaviour:
   m_UpdateType: 0
   m_IgnoreTrackingState: 0
   m_PositionInput:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Position
       m_Type: 0
@@ -1145,9 +1145,9 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: -4762701400042572378, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   m_RotationInput:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Rotation
       m_Type: 0
@@ -1155,17 +1155,9 @@ MonoBehaviour:
       m_Id: 73db6262-3e57-4ddc-a7de-d67751188ab2
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: d2a0efb2-a767-4419-9024-f4158e4a7f50
-        m_Path: <TrackedDevice>/deviceRotation
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Rotation
-        m_Flags: 0
+      m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: -1776004433765298748, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   m_TrackingStateInput:
     m_UseReference: 0
     m_Action:
@@ -2105,12 +2097,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1921316555}
+  - component: {fileID: 1921316561}
   - component: {fileID: 1921316560}
   - component: {fileID: 1921316559}
   - component: {fileID: 1921316558}
   - component: {fileID: 1921316557}
   - component: {fileID: 1921316556}
-  - component: {fileID: 1921316561}
   m_Layer: 0
   m_Name: RightController
   m_TagString: Untagged
@@ -2304,7 +2296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inHand: {fileID: 0}
-  carrycontrol: {fileID: 0}
+  carrycontrol: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   carry: 0
 --- !u!1 &2018781190
 GameObject:
