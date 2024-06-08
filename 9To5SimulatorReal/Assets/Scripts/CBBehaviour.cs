@@ -6,14 +6,13 @@ using UnityEngine;
 public class CBBehaviour : MonoBehaviour
 {
 
-    public float conveyorForce;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    float conveyorForce;
+
 
     void OnTriggerStay(Collider other) {
+
+        // apply force to patties on conveyor belt
         if (other.gameObject.CompareTag("Interactable"))
         {
             Vector3 force = new Vector3(conveyorForce * 100 * Time.deltaTime, 0f, 0f);
