@@ -40,13 +40,13 @@ public class Hand : MonoBehaviour
             Debug.Log("Hello");
         }
 
-        if (inHand != null && input.action.triggered)
+        if (inHand != null && input.action.ReadValue<float>() == 1.0f)
         {
             inHand.GetComponent<Rigidbody>().useGravity = false;
             inHand.transform.SetParent(this.gameObject.transform);
             carry = true;
 
-        } else if (inHand != null && !input.action.triggered) {
+        } else if (inHand != null && input.action.ReadValue<float>() != 1.0f) {
 
             inHand.GetComponent<Rigidbody>().useGravity = true;
             inHand.transform.SetParent(null);
