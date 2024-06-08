@@ -1773,7 +1773,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -1776004433765298748, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   m_TrackingStateInput:
-    m_UseReference: 1
+    m_UseReference: 0
     m_Action:
       m_Name: Tracking State
       m_Type: 1
@@ -1783,7 +1783,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+    m_Reference: {fileID: 0}
   m_PositionAction:
     m_Name: 
     m_Type: 0
@@ -1886,8 +1886,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inHand: {fileID: 0}
-  carrycontrol: {fileID: 1709071660}
-  carry: 0
+  controllerActionInteract: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+  inRange: 0
 --- !u!4 &1728787461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 29d632a6a4eaa8372817cdb7872dfcbf, type: 3}
@@ -2023,7 +2023,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -1776004433765298748, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   m_TrackingStateInput:
-    m_UseReference: 1
+    m_UseReference: 0
     m_Action:
       m_Name: Tracking State
       m_Type: 1
@@ -2031,17 +2031,9 @@ MonoBehaviour:
       m_Id: 03dd14ab-428b-4eab-87c8-cebc4dd28e84
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: 9f17b8b7-df41-418a-b0df-34c3926acbff
-        m_Path: <XRController>/isTracked
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Tracking State
-        m_Flags: 0
+      m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+    m_Reference: {fileID: 0}
   m_PositionAction:
     m_Name: 
     m_Type: 0
@@ -2144,8 +2136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inHand: {fileID: 0}
-  carrycontrol: {fileID: 1921316557}
-  carry: 0
+  controllerActionInteract: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+  inRange: 0
 --- !u!1 &2018781190
 GameObject:
   m_ObjectHideFlags: 0

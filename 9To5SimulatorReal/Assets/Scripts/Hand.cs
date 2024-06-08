@@ -9,15 +9,16 @@ using UnityEngine.XR;
 public class Hand : MonoBehaviour
 {
     public GameObject inHand;
-    public TrackedPoseDriver carrycontrol;
-    private bool interactableInRange = false;
+    public InputActionReference controllerActionInteract;
     [SerializeField]
+    private bool inRange = false;
     private bool carry = false;
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Interactable") && !carry) {
             Renderer handRender = this.gameObject.GetComponent<Renderer>();
             handRender.material.SetColor("_Color", Color.green);
-            interactableInRange = true;
+            inHand = other.gameObject;
+            inRange = true;
         }
     }
 
@@ -25,27 +26,8 @@ public class Hand : MonoBehaviour
         if (other.gameObject.CompareTag("Interactable")) {
             Renderer handRender = this.gameObject.GetComponent<Renderer>();
             handRender.material.SetColor("_Color", Color.white);
-            interactableInRange = false;
-        }
-    }
-
-    void OnTriggerStay(Collider other) {
-
-        // Code for grabbing stuff
-        if (other.gameObject.CompareTag("Interactable") && !carry) {
-            if (carrycontrol.trackingStateInput.action.triggered) {
-                carry = true;
-                inHand = other.gameObject;
-                inHand.GetComponent<Rigidbody>().useGravity = false;
-                inHand.transform.SetParent(this.gameObject.transform);
-            }
-        } else if (inHand != null && carry) {
-            if (!carrycontrol.trackingStateInput.action.triggered) {
-                inHand.transform.SetParent(null);
-                inHand.GetComponent<Rigidbody>().useGravity = true;
-                inHand = null;
-                carry = false;
-            }
+            inHand = null;
+            inRange = false;
         }
     }
 
@@ -53,10 +35,19 @@ public class Hand : MonoBehaviour
         
     }
     void Update() {
-        if (interactableInRange)
+        
+        if (inHand != null && controllerActionInteract.action.triggered)
         {
-            // Accept input to pick up stuff
-        }
+            inHand.GetComponent<Rigidbody>().useGravity = false;
+            inHand.transform.SetParent(this.gameObject.transform);
+            carry = true;
 
+        } else if (inHand != null && !controllerActionInteract.action.triggered) {
+
+            inHand.GetComponent<Rigidbody>().useGravity = true;
+            inHand.transform.SetParent(null);
+            carry = false;
+            
+        }
     }
 }
