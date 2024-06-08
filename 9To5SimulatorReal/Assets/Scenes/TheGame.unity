@@ -1998,6 +1998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inHand: {fileID: 0}
   input: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+  otherHand: {fileID: 0}
   carry: 0
 --- !u!138 &1709071665
 FixedJoint:
@@ -2296,7 +2297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inHand: {fileID: 0}
-  input: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+  input: {fileID: 5044474934614463765, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+  otherHand: {fileID: 0}
   carry: 0
 --- !u!138 &1921316562
 FixedJoint:

@@ -83,6 +83,7 @@ public class PattyBehaviour : MonoBehaviour
         return this.gameObject.transform.GetChild(index).gameObject;
     }
 
+    // setting patty's grilled status
     public void setGrill(bool x) {
         isgrill = x;
     }

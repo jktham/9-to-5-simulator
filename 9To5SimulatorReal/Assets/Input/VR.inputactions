@@ -24,9 +24,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact",
+                    "name": "Interact_left",
                     "type": "Button",
                     "id": "d6bda6d3-dc97-46da-a1be-2d358b4aee71",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact_right",
+                    "type": "Button",
+                    "id": "a0dbd73a-4f70-40aa-b4f5-9e8f61c9b209",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -48,22 +57,11 @@
                 {
                     "name": "",
                     "id": "f0683eeb-e563-4e4d-a944-79eacd727a12",
-                    "path": "<XRController>/triggerPressed",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7f717467-5ffe-485a-8999-f7c782cdb340",
-                    "path": "<Keyboard>/#(E)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
+                    "action": "Interact_left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -75,6 +73,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "474f0c6f-30c1-469f-b738-1ac0153524a3",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Interact_right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

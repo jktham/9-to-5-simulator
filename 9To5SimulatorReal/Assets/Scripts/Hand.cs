@@ -11,23 +11,31 @@ public class Hand : MonoBehaviour
     public GameObject inHand;
     public InputActionReference input;
 
+    public GameObject otherHand;
+
     private GameBehaviour game;
+    private Hand otherHandControl;
 
     [SerializeField]
     private bool carry = false;
+    private Collider inRange;
 
     void OnTriggerEnter(Collider other) {
 
         // Highlight when interactable in reach
-        if (other.gameObject.CompareTag("Interactable") && !carry) {
+        if (other.gameObject.CompareTag("Interactable") && !carry && 
+                otherHandControl.inRange != inRange) {
             Renderer handRender = this.gameObject.GetComponent<Renderer>();
             handRender.material.SetColor("_Color", Color.green);
+            inRange = other;
         }
 
         // Highlight when special in reach
-        if (other.gameObject.CompareTag("Special") && !game.inShift) {
+        if (other.gameObject.CompareTag("Special") && !game.inShift &&
+                otherHandControl.inRange != inRange) {
             Renderer handRender = this.gameObject.GetComponent<Renderer>();
             handRender.material.SetColor("_Color", Color.yellow);
+            inRange = other;
         }
 
     }
@@ -36,41 +44,50 @@ public class Hand : MonoBehaviour
 
         // Undo highlight when out of reach
         if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("Special")) {
-            resetRender();
+            resethand();
         }
 
     }
 
     void OnTriggerStay(Collider other) {
 
+        Rigidbody myRigidBody = other.gameObject.GetComponent<Rigidbody>();
+
         // Picking stuff up
-        if (other.gameObject.CompareTag("Interactable") && input.action.ReadValue<float>() == 1.0f && !carry)
+        if (other.gameObject.CompareTag("Interactable") && input.action.ReadValue<float>() == 1.0f 
+            && !carry && otherHandControl.inRange != inRange)
         {
-            this.gameObject.GetComponent<FixedJoint>().connectedBody = other.gameObject.GetComponent<Rigidbody>();
+            myRigidBody.useGravity = false;
+            this.gameObject.GetComponent<FixedJoint>().connectedBody = myRigidBody;
+
             carry = true;
 
         } else if (other.gameObject.CompareTag("Interactable") && input.action.ReadValue<float>() == 0.0f && carry) {
 
+            myRigidBody.useGravity = true;
             this.gameObject.GetComponent<FixedJoint>().connectedBody = null;
             carry = false;
             
         }
 
         // startGame
-        if (other.gameObject.CompareTag("Special") && input.action.ReadValue<float>() == 1.0f) {
+        if (other.gameObject.CompareTag("Special") && input.action.ReadValue<float>() == 1.0f && 
+                otherHandControl.inRange != inRange) {
             game.startShift();
-            resetRender();
+            resethand();
         }
     }
 
     void Start() {
         game = GameObject.Find("GameController").GetComponent<GameBehaviour>();
+        otherHandControl = otherHand.GetComponent<Hand>();
     }
 
     // Resets color of hands
-    void resetRender() {
+    void resethand() {
         Renderer handRender = this.gameObject.GetComponent<Renderer>();
         handRender.material.SetColor("_Color", Color.white);
+        inRange = null;
     }
 
 }

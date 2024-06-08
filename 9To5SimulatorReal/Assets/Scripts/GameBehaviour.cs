@@ -38,7 +38,7 @@ public class GameBehaviour : MonoBehaviour
         // starts shift one time only!
         if (switchStartShift && !inShift)
         {
-            startShift();
+            StartCoroutine( StartShift() );
             switchStartShift = false;
             inShift = true;
         }
@@ -55,7 +55,7 @@ public class GameBehaviour : MonoBehaviour
     }
 
     public void startShift() {
-        StartCoroutine( StartShift() );
+        switchStartShift = true;
     }
 
     public void endShift() {
