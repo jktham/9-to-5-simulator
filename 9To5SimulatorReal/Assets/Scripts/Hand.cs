@@ -23,16 +23,14 @@ public class Hand : MonoBehaviour
     void OnTriggerEnter(Collider other) {
 
         // Highlight when interactable in reach
-        if (other.gameObject.CompareTag("Interactable") && !carry && 
-                otherHandControl.inRange != inRange) {
+        if (other.gameObject.CompareTag("Interactable") && !carry && checkHands(otherHandControl)) {
             Renderer handRender = this.gameObject.GetComponent<Renderer>();
             handRender.material.SetColor("_Color", Color.green);
             inRange = other;
         }
 
         // Highlight when special in reach
-        if (other.gameObject.CompareTag("Special") && !game.inShift &&
-                otherHandControl.inRange != inRange) {
+        if (other.gameObject.CompareTag("Special") && !game.inShift && checkHands(otherHandControl)) {
             Renderer handRender = this.gameObject.GetComponent<Renderer>();
             handRender.material.SetColor("_Color", Color.yellow);
             inRange = other;
@@ -55,7 +53,7 @@ public class Hand : MonoBehaviour
 
         // Picking stuff up
         if (other.gameObject.CompareTag("Interactable") && input.action.ReadValue<float>() == 1.0f 
-            && !carry && otherHandControl.inRange != inRange)
+            && !carry && inRange != null)
         {
             myRigidBody.useGravity = false;
             this.gameObject.GetComponent<FixedJoint>().connectedBody = myRigidBody;
@@ -71,8 +69,7 @@ public class Hand : MonoBehaviour
         }
 
         // startGame
-        if (other.gameObject.CompareTag("Special") && input.action.ReadValue<float>() == 1.0f && 
-                otherHandControl.inRange != inRange) {
+        if (other.gameObject.CompareTag("Special") && input.action.ReadValue<float>() == 1.0f && inRange == other) {
             game.startShift();
             resethand();
         }
@@ -88,6 +85,10 @@ public class Hand : MonoBehaviour
         Renderer handRender = this.gameObject.GetComponent<Renderer>();
         handRender.material.SetColor("_Color", Color.white);
         inRange = null;
+    }
+
+    bool checkHands(Hand control) {
+        return otherHandControl.inRange == null || (otherHandControl.inRange != inRange);
     }
 
 }
