@@ -7,6 +7,11 @@ public class GameBehaviour : MonoBehaviour
 {
 
     public int shiftInSeconds = 0;
+    public int shiftInMinutes = 0;
+    public int shiftInHours = 0;
+    [SerializeField]
+    private bool switchStartShift = false;
+    public bool inShift = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +21,17 @@ public class GameBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // starts shift one time only!
+        if (switchStartShift && !inShift)
+        {
+            startShift();
+            switchStartShift = false;
+            inShift = true;
+        }
+
+        // update both minutes and hours
+        shiftInMinutes = shiftInSeconds / 60;
+        shiftInHours = shiftInMinutes / 60;
     }
 
     public void startShift() {
