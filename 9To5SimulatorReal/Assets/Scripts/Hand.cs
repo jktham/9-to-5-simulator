@@ -9,7 +9,8 @@ using UnityEngine.XR;
 public class Hand : MonoBehaviour
 {
     public GameObject inHand;
-    public InputActionReference controllerActionInteract;
+    private GameBehaviour game;
+
     [SerializeField]
     private bool inRange = false;
     private bool carry = false;
@@ -32,17 +33,23 @@ public class Hand : MonoBehaviour
     }
 
     void Start() {
-        
+        game = GameObject.Find("GameController").GetComponent<GameBehaviour>();
     }
+
     void Update() {
-        
-        if (inHand != null && controllerActionInteract.action.triggered)
+
+        if (game.interactGET())
+        {
+            Debug.Log("Hello");
+        }
+
+        if (inHand != null && game.interactGET())
         {
             inHand.GetComponent<Rigidbody>().useGravity = false;
             inHand.transform.SetParent(this.gameObject.transform);
             carry = true;
 
-        } else if (inHand != null && !controllerActionInteract.action.triggered) {
+        } else if (inHand != null && !game.interactGET()) {
 
             inHand.GetComponent<Rigidbody>().useGravity = true;
             inHand.transform.SetParent(null);
@@ -50,4 +57,5 @@ public class Hand : MonoBehaviour
             
         }
     }
+
 }

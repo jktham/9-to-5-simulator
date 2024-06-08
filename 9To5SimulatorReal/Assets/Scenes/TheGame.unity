@@ -546,6 +546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 604860241}
   - component: {fileID: 604860240}
+  - component: {fileID: 604860242}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -587,6 +588,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &604860242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604860239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 57610a15-4e3e-45c9-9cc2-4ff921aef535
+    m_ActionName: ControllerVR/Move
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2e509863-4a07-4ec3-b310-3292d0a2380c
+    m_ActionName: ControllerVR/Rotate
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 604860240}
+        m_TargetAssemblyTypeName: GameBehaviour, Assembly-CSharp
+        m_MethodName: inputinteract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d6bda6d3-dc97-46da-a1be-2d358b4aee71
+    m_ActionName: ControllerVR/Interact[/Keyboard/anyKey]
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: XR
+  m_DefaultActionMap: ControllerVR
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &605487939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1693,6 +1748,7 @@ GameObject:
   - component: {fileID: 1709071661}
   - component: {fileID: 1709071660}
   - component: {fileID: 1709071659}
+  - component: {fileID: 1709071665}
   m_Layer: 0
   m_Name: LeftController
   m_TagString: Untagged
@@ -1781,15 +1837,7 @@ MonoBehaviour:
       m_Id: 03dd14ab-428b-4eab-87c8-cebc4dd28e84
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: e866d1a6-78c6-4183-b17e-e1b4e3fd9b45
-        m_Path: <TrackedDevice>/triggerPressed
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Tracking State
-        m_Flags: 0
+      m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_PositionAction:
@@ -1894,8 +1942,90 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inHand: {fileID: 0}
-  controllerActionInteract: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+  pp: {fileID: 1709071665}
   inRange: 0
+--- !u!114 &1709071665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709071657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3957e9fe-a1e5-44af-b641-a71e280d2522
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 994d03af-d766-4276-be7d-db5a5df70078
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b51ab1b0-367b-4766-9315-d4e0f0afd314
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5ad2d9c1-e368-47b7-b9b4-f3254b78ad09
+    m_ActionName: UI/Point[/Mouse/position,/Pen/position,/Touchscreen/touch0/position,/Touchscreen/touch1/position,/Touchscreen/touch2/position,/Touchscreen/touch3/position,/Touchscreen/touch4/position,/Touchscreen/touch5/position,/Touchscreen/touch6/position,/Touchscreen/touch7/position,/Touchscreen/touch8/position,/Touchscreen/touch9/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2368d723-4e89-47ad-8c97-1804616bbf72
+    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip,/Touchscreen/touch0/press,/Touchscreen/touch1/press,/Touchscreen/touch2/press,/Touchscreen/touch3/press,/Touchscreen/touch4/press,/Touchscreen/touch5/press,/Touchscreen/touch6/press,/Touchscreen/touch7/press,/Touchscreen/touch8/press,/Touchscreen/touch9/press]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d5b633a4-b7ad-413d-83a2-3c27f9696724
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3f2470bb-a425-495c-802f-c25a3cdc6025
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 97d10eb3-0b6b-410b-b672-ced291d1c849
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 52adab2a-bfb6-4acd-b1cb-900d14d6d6d8
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 66894c40-bdac-46ae-86d7-9a801ab771e3
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 57610a15-4e3e-45c9-9cc2-4ff921aef535
+    m_ActionName: ControllerVR/Move
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2e509863-4a07-4ec3-b310-3292d0a2380c
+    m_ActionName: ControllerVR/Rotate
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d6bda6d3-dc97-46da-a1be-2d358b4aee71
+    m_ActionName: ControllerVR/Interact[/Keyboard/anyKey]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: XR
+  m_DefaultActionMap: ControllerVR
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!4 &1728787461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 29d632a6a4eaa8372817cdb7872dfcbf, type: 3}
@@ -2031,7 +2161,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -1776004433765298748, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   m_TrackingStateInput:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Tracking State
       m_Type: 1
@@ -2039,17 +2169,9 @@ MonoBehaviour:
       m_Id: 03dd14ab-428b-4eab-87c8-cebc4dd28e84
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: 626d7856-6621-4894-a7c6-c054f08b6fcd
-        m_Path: <TrackedDevice>/triggerPressed
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Tracking State
-        m_Flags: 0
+      m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   m_PositionAction:
     m_Name: 
     m_Type: 0
@@ -2152,7 +2274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inHand: {fileID: 0}
-  controllerActionInteract: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+  pp: {fileID: 0}
   inRange: 0
 --- !u!1 &2018781190
 GameObject:

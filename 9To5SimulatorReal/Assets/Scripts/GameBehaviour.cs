@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameBehaviour : MonoBehaviour
@@ -10,6 +11,8 @@ public class GameBehaviour : MonoBehaviour
     public int shiftInMinutes = 0;
     public int shiftInHours = 0;
     public int wincondition = 3600 * 8;
+
+    private bool interact = false;
     [SerializeField]
     private bool switchStartShift = false;
     public bool inShift = false;
@@ -42,6 +45,10 @@ public class GameBehaviour : MonoBehaviour
         }
     }
 
+    void LateUpdate() {
+        interact = false;
+    }
+
     public void startShift() {
         StartCoroutine( StartShift() );
     }
@@ -60,5 +67,13 @@ public class GameBehaviour : MonoBehaviour
             yield return second;
 
         }
+    }
+
+    public void inputinteract() {
+        interact = true;
+    }
+
+    public bool interactGET() {
+        return interact;
     }
 }
