@@ -42,13 +42,13 @@ public class Hand : MonoBehaviour
 
         if (inHand != null && input.action.ReadValue<float>() == 1.0f)
         {
-            inHand.GetComponent<Rigidbody>().useGravity = false;
+            inHand.GetComponent<Rigidbody>().isKinematic = true;
             inHand.transform.SetParent(this.gameObject.transform);
             carry = true;
 
         } else if (inHand != null && input.action.ReadValue<float>() != 1.0f) {
 
-            inHand.GetComponent<Rigidbody>().useGravity = true;
+            inHand.GetComponent<Rigidbody>().isKinematic = false;
             inHand.transform.SetParent(null);
             carry = false;
             
