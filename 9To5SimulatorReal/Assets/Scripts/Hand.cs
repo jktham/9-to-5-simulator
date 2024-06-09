@@ -62,18 +62,13 @@ public class Hand : MonoBehaviour
         speaker = GameObject.Find("speaker").GetComponent<SpeakerBehaviour>();
     }
 
-    void Update() {
+    void FixedUpdate() {
 
         // Remove doubly carried stuff
         if (bothHandsSame())  {
             this.gameObject.GetComponent<FixedJoint>().connectedBody = null;
             carry = null;
         }
-        // synchronize carry with inRange
-        // if (carry != null && inRange == null) inRange = carry;
-    }
-
-    void FixedUpdate() {
 
         // INTERACTION LOGIC
         if (input.action.ReadValue<float>() == 1.0f && inRange != null && !carry) {
@@ -94,7 +89,6 @@ public class Hand : MonoBehaviour
                     
                     if (!game.win) {
 
-                        game.illegalClockOuts++;
                         if (game.illegalClockOuts == 2) {
                             speaker.playSound(4,1);
                         } else if (game.illegalClockOuts >= 3) {

@@ -937,11 +937,11 @@ MonoBehaviour:
   end: 0
   endingType: 0
   mixer: {fileID: 24100000, guid: d1fdc5f358bc9764a99a52f9d677c7ca, type: 2}
-  illegalClockOuts: 0
   input: {fileID: -944628639613478452, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   switchStartShift: 0
   inShift: 0
-  clockOutReset: 60
+  illegalClockOuts: 0
+  clockOutResetTime: 60
 --- !u!4 &604860241
 Transform:
   m_ObjectHideFlags: 0
@@ -3013,7 +3013,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -1776004433765298748, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   m_TrackingStateInput:
-    m_UseReference: 1
+    m_UseReference: 0
     m_Action:
       m_Name: Tracking State
       m_Type: 1
@@ -3023,7 +3023,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
+    m_Reference: {fileID: 0}
   m_PositionAction:
     m_Name: 
     m_Type: 0
