@@ -32,6 +32,9 @@ public class PattySpawn : MonoBehaviour
             StartCoroutine( burgerTime() );
             switcher = false;
         }
+        if (game.win) {
+            StopAllCoroutines();
+        }
     }
 
     public void start() {

@@ -52,9 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  timeForCook: 10
-  timeForBurn: 20
-  timeForFire: 30
+  timeForCook: 200
+  timeForBurn: 300
+  timeForFire: 400
 --- !u!82 &2380575445511406915
 AudioSource:
   m_ObjectHideFlags: 0

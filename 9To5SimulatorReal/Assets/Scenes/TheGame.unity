@@ -1404,7 +1404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114046a2ed8430146951ebb617891042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shiftInSeconds: 0
+  shiftInSeconds: 28500
   shiftInMinutes: 0
   shiftInHours: 0
   wincondition: 28800
@@ -5109,7 +5109,7 @@ MonoBehaviour:
   baseDropChance: 0.25
   rushDropChance: 0.5
   specialDropChance: 0.25
-  deltaCheck: 10
+  deltaCheck: 30
 --- !u!4 &1845358537450509134
 Transform:
   m_ObjectHideFlags: 0
