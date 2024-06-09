@@ -1404,7 +1404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114046a2ed8430146951ebb617891042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shiftInSeconds: 28500
+  shiftInSeconds: 0
   shiftInMinutes: 0
   shiftInHours: 0
   wincondition: 28800
@@ -5106,8 +5106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalpatty: {fileID: 7882497644672981221, guid: 57c87b9e235cdc349a7a3429991fab99, type: 3}
   mikupatty: {fileID: 7392843978050059137, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
-  baseDropChance: 0.25
-  rushDropChance: 0.5
+  baseDropChance: 0.5
+  rushDropChance: 0.75
   specialDropChance: 0.25
   deltaCheck: 30
 --- !u!4 &1845358537450509134
