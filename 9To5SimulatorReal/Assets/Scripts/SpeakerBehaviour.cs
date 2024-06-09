@@ -35,7 +35,7 @@ public class SpeakerBehaviour : MonoBehaviour
     public void playSound(int index, int delay) {
 
         if (!locked) {
-            if (index == 3 ||index == 4) {
+            if (index == 3 || index == 4) {
                 game.illegalClockOuts++;
             }
             myAudio.clip = clips[index];

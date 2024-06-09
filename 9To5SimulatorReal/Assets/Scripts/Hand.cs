@@ -91,12 +91,12 @@ public class Hand : MonoBehaviour
 
                         if (game.illegalClockOuts == 2) {
                             speaker.playSound(4,1);
+                            game.startIllegalClockOutTimer();
                         } else if (game.illegalClockOuts >= 3) {
                             game.ending(Ending.fired);
                         } else {
                             speaker.playSound(3,1);
                         }
-                        game.startIllegalClockOutTimer();
 
                     } else {
 

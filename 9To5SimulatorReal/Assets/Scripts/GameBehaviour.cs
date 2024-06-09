@@ -96,7 +96,6 @@ public class GameBehaviour : MonoBehaviour
     }
 
     public void startIllegalClockOutTimer() {
-        StopCoroutine( IllegalClockOutReset(clockOutResetTime) );
         StartCoroutine( IllegalClockOutReset(clockOutResetTime) );
     }
 
