@@ -89,10 +89,10 @@ public class Hand : MonoBehaviour
                     
                     if (!game.win) {
 
-                        if (game.illegalClockOuts == 2) {
+                        if (game.illegalClockOuts == 1) {
                             speaker.playSound(4,1);
                             game.startIllegalClockOutTimer();
-                        } else if (game.illegalClockOuts >= 3) {
+                        } else if (game.illegalClockOuts >= 2) {
                             game.ending(Ending.fired);
                         } else {
                             speaker.playSound(3,1);

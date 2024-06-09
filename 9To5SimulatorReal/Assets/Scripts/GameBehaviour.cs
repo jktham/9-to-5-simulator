@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public enum Ending
 {
-    fired, success, real
+    fired, success
 }
 public class GameBehaviour : MonoBehaviour
 {
