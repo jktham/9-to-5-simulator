@@ -23,7 +23,7 @@ public class Hand : MonoBehaviour
     public Collider inRange;
 
     private bool canInteract = true;
-    private float lastFrametriggerState;
+    private bool switcher = true;
 
     void OnTriggerEnter(Collider other) {
 
@@ -80,9 +80,7 @@ public class Hand : MonoBehaviour
     void FixedUpdate() {
 
         // INTERACTION LOGIC
-        float cur = input.action.ReadValue<float>();
-        if (cur != lastFrametriggerState && cur == 1.0f && 
-                inRange != null && !carry && canInteract) {
+        if (input.action.ReadValue<float>() == 1.0f && inRange != null && !carry && canInteract) {
         // button pressed
 
             if (inRange.gameObject.CompareTag("Special")) {
@@ -102,7 +100,10 @@ public class Hand : MonoBehaviour
                     
                     if (!game.win) {
 
-                        game.illegalClockOuts++;
+                        if (switcher) {
+                            switcher = false;
+                            game.illegalClockOuts++;
+                        }
                         if (game.illegalClockOuts == 2) {
                             speaker.playSound(4,1);
                         } else if (game.illegalClockOuts >= 3) {
@@ -138,7 +139,9 @@ public class Hand : MonoBehaviour
             this.gameObject.GetComponent<FixedJoint>().connectedBody = null;
             
         }
-        lastFrametriggerState = cur;
+
+        switcher = true;
+
     }
 
     // Resets hand
