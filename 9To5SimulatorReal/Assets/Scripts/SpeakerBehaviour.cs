@@ -38,9 +38,6 @@ public class SpeakerBehaviour : MonoBehaviour
             myAudio.clip = clips[index];
             myAudio.PlayDelayed(delay);
             StartCoroutine(Waiting(clips[index].length + delay));
-            if (index == 3 || index == 4) {
-                game.illegalClockOuts++;
-            }
         }
 
     }

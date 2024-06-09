@@ -26,16 +26,16 @@ public class GameBehaviour : MonoBehaviour
 
     public AudioMixer mixer;
 
-    public int illegalClockOuts = 0;
-
     [SerializeField]
     InputActionAsset input;
 
     [SerializeField]
     private bool switchStartShift = false;
     public bool inShift = false;
+
+    public int illegalClockOuts = 0;
     [SerializeField]
-    private float clockOutReset;
+    private float clockOutResetTime;
 
     SpeakerBehaviour speaker;
 
@@ -96,8 +96,8 @@ public class GameBehaviour : MonoBehaviour
     }
 
     public void startIllegalClockOutTimer() {
-        StopCoroutine( IllegalClockOutReset(clockOutReset) );
-        StartCoroutine( IllegalClockOutReset(clockOutReset) );
+        StopCoroutine( IllegalClockOutReset(clockOutResetTime) );
+        StartCoroutine( IllegalClockOutReset(clockOutResetTime) );
     }
 
     public void ending(Ending type) {

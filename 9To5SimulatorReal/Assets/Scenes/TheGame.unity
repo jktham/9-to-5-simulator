@@ -937,11 +937,11 @@ MonoBehaviour:
   end: 0
   endingType: 0
   mixer: {fileID: 24100000, guid: d1fdc5f358bc9764a99a52f9d677c7ca, type: 2}
-  illegalClockOuts: 60
+  illegalClockOuts: 0
   input: {fileID: -944628639613478452, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   switchStartShift: 0
   inShift: 0
-  clockOutReset: 0
+  clockOutReset: 60
 --- !u!4 &604860241
 Transform:
   m_ObjectHideFlags: 0
@@ -2799,7 +2799,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inHand: {fileID: 0}
   input: {fileID: -2840492347441861836, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
-  click: {fileID: 0}
   otherHand: {fileID: 1921316554}
   carry: {fileID: 0}
   inRange: {fileID: 0}
@@ -3128,7 +3127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inHand: {fileID: 0}
   input: {fileID: 5044474934614463765, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
-  click: {fileID: 0}
   otherHand: {fileID: 1709071657}
   carry: {fileID: 0}
   inRange: {fileID: 0}
