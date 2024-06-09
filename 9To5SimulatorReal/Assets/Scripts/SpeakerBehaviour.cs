@@ -5,10 +5,9 @@ using UnityEngine;
 public class SpeakerBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private float delay;
-    [SerializeField]
-    AudioClip companyjingle;
+    List<AudioClip> clips;
     private bool switchSound = false;
+    private bool locked = false;
 
     private AudioSource myAudio;
 
@@ -22,9 +21,8 @@ public class SpeakerBehaviour : MonoBehaviour
     void Update()
     {
         if (switchSound) {
-            myAudio.PlayDelayed(delay);
+            playSound(0,1);
             switchSound = false;
-            StartCoroutine(UntilNext(companyjingle, 35));
         }
     }
 
@@ -32,11 +30,24 @@ public class SpeakerBehaviour : MonoBehaviour
         switchSound = true;
     }
 
-    private IEnumerator UntilNext(AudioClip clip, int delay) {
+    public void playSound(int index, int delay) {
 
-        WaitForSeconds wait = new WaitForSeconds(delay);
-        yield return wait;
-        myAudio.clip = companyjingle;
-        myAudio.Play();
+        if (!locked) {
+            myAudio.clip = clips[index];
+            myAudio.PlayDelayed(delay);
+            StartCoroutine(Waiting(clips[index].length + delay));
+        }
+
     }
+
+    // prevent overlapping soundclips
+    private IEnumerator Waiting(float Length) {
+
+        locked = true;
+        WaitForSeconds seconds = new WaitForSeconds(Length);
+        yield return seconds;
+        locked = false;
+
+    }
+
 }

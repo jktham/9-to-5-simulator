@@ -97,6 +97,7 @@ public class Hand : MonoBehaviour
         inRange = null;
     }
 
+    // Check if both hands carry the same object
     bool bothHandsSame() {
         return carry != null && (otherHandControl.carry == carry);
     }

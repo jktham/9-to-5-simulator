@@ -13,6 +13,8 @@ public class GameBehaviour : MonoBehaviour
     public int shiftInHours = 0;
     public int wincondition = 3600 * 8;
 
+    public bool DebugMode = false;
+
     [SerializeField]
     InputActionAsset input;
 
@@ -25,20 +27,13 @@ public class GameBehaviour : MonoBehaviour
         input.Enable();
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         // starts shift one time only!
         if (switchStartShift && !inShift)
         {
-            StartCoroutine( StartShift() );
+            if (!DebugMode) StartCoroutine( StartShift() );
             switchStartShift = false;
             inShift = true;
             GameObject.Find("PattySpawner").GetComponent<PattySpawn>().start();
@@ -46,8 +41,8 @@ public class GameBehaviour : MonoBehaviour
         }
 
         // update both minutes and hours
-        shiftInMinutes = shiftInSeconds / 60;
-        shiftInHours = shiftInMinutes / 60;
+        if (!DebugMode) shiftInMinutes = shiftInSeconds / 60;
+        if (!DebugMode) shiftInHours = shiftInMinutes / 60;
 
         // wincondition
         if (shiftInSeconds >= wincondition && GameObject.FindGameObjectsWithTag("Interactable").Length == 0)
