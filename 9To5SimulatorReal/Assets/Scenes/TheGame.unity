@@ -575,67 +575,6 @@ Transform:
   - {fileID: 1834170391}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &424267803
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1325090041764224437, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.602
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325090041764224437, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.074
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325090041764224437, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.161
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325090041764224437, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325090041764224437, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325090041764224437, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325090041764224437, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325090041764224437, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325090041764224437, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325090041764224437, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7392843978050059137, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
-      propertyPath: m_Name
-      value: patty_miku
-      objectReference: {fileID: 0}
-    - target: {fileID: 8159269360171934421, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
-      propertyPath: state
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 905d86161914f9a4ab9873b2d389f462, type: 3}
 --- !u!82 &472705616
 AudioSource:
   m_ObjectHideFlags: 0
@@ -645,7 +584,7 @@ AudioSource:
   m_GameObject: {fileID: 919132148445004463}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: d1fdc5f358bc9764a99a52f9d677c7ca, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1bc6c3683a38e914599ac2932297f96f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.75
@@ -789,10 +728,10 @@ MonoBehaviour:
   shiftInHours: 0
   wincondition: 28800
   DebugMode: 0
+  win: 0
   input: {fileID: -944628639613478452, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   switchStartShift: 0
   inShift: 0
-  win: 0
 --- !u!4 &604860241
 Transform:
   m_ObjectHideFlags: 0
@@ -4390,10 +4329,10 @@ AudioSource:
   m_GameObject: {fileID: 2753246575682327203}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: d1fdc5f358bc9764a99a52f9d677c7ca, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2a767d7ae14ba3749bebfcf9d99b801e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8780,4 +8719,3 @@ SceneRoots:
   - {fileID: 413158868}
   - {fileID: 123999500}
   - {fileID: 156958612}
-  - {fileID: 424267803}

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameBehaviour : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameBehaviour : MonoBehaviour
     public int wincondition = 3600 * 8;
 
     public bool DebugMode = false;
+    public bool win = false;
 
     [SerializeField]
     InputActionAsset input;
@@ -21,10 +23,13 @@ public class GameBehaviour : MonoBehaviour
     [SerializeField]
     private bool switchStartShift = false;
     public bool inShift = false;
-    public bool win = false;
 
     protected void OnEnable() {
         input.Enable();
+    }
+
+    void Awake() {
+        DontDestroyOnLoad(GameObject.Find("Player"));
     }
 
     // Update is called once per frame
@@ -45,9 +50,8 @@ public class GameBehaviour : MonoBehaviour
         if (!DebugMode) shiftInHours = shiftInMinutes / 60;
 
         // wincondition
-        if (shiftInSeconds >= wincondition && GameObject.FindGameObjectsWithTag("Interactable").Length == 0)
-        {
-            win = true;
+        if (shiftInSeconds >= wincondition || win == true) {
+            ending();
         }
     }
 
@@ -57,6 +61,10 @@ public class GameBehaviour : MonoBehaviour
 
     public void endShift() {
         StopCoroutine( StartShift() );
+    }
+
+    private void ending() {
+        SceneManager.LoadScene("Ending");
     }
 
     private IEnumerator StartShift() {
