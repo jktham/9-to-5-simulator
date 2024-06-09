@@ -6,6 +6,8 @@ public class SpeakerBehaviour : MonoBehaviour
 {
     [SerializeField]
     private float delay;
+    [SerializeField]
+    AudioClip companyjingle;
     private bool switchSound = false;
 
     private AudioSource myAudio;
@@ -22,10 +24,19 @@ public class SpeakerBehaviour : MonoBehaviour
         if (switchSound) {
             myAudio.PlayDelayed(delay);
             switchSound = false;
+            StartCoroutine(UntilNext(companyjingle, 35));
         }
     }
 
     public void start() {
         switchSound = true;
+    }
+
+    private IEnumerator UntilNext(AudioClip clip, int delay) {
+
+        WaitForSeconds wait = new WaitForSeconds(delay);
+        yield return wait;
+        myAudio.clip = companyjingle;
+        myAudio.Play();
     }
 }
