@@ -989,12 +989,12 @@ MonoBehaviour:
   shiftInMinutes: 0
   shiftInHours: 0
   wincondition: 28800
-  DebugMode: 1
+  DebugMode: 0
   win: 0
   end: 0
   endingType: 0
   mixer: {fileID: 24100000, guid: d1fdc5f358bc9764a99a52f9d677c7ca, type: 2}
-  illegalClockOuts: 0
+  illegalClockOuts: 60
   input: {fileID: -944628639613478452, guid: 535421bd242c9594fbe3de947d39284a, type: 3}
   switchStartShift: 0
   inShift: 0
