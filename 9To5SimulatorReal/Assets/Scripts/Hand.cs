@@ -10,6 +10,7 @@ public class Hand : MonoBehaviour
 {
     public GameObject inHand;
     public InputActionReference input;
+    public InputActionReference click;
 
     [SerializeField]
     private GameObject otherHand;
@@ -22,6 +23,7 @@ public class Hand : MonoBehaviour
     public Collider inRange;
 
     private bool canInteract = true;
+    private float lastFrametriggerState;
 
     void OnTriggerEnter(Collider other) {
 
@@ -67,7 +69,10 @@ public class Hand : MonoBehaviour
     void Update() {
 
         // Remove doubly carried stuff
-        if (bothHandsSame()) carry = null;
+        if (bothHandsSame())  {
+            this.gameObject.GetComponent<FixedJoint>().connectedBody = null;
+            carry = null;
+        }
         // synchronize carry with inRange
         if (carry != null && inRange == null) inRange = carry;
     }
@@ -75,7 +80,9 @@ public class Hand : MonoBehaviour
     void FixedUpdate() {
 
         // INTERACTION LOGIC
-        if (input.action.ReadValue<float>() == 1.0f && inRange != null && !carry && canInteract) {
+        float cur = input.action.ReadValue<float>();
+        if (cur != lastFrametriggerState && cur == 1.0f && 
+                inRange != null && !carry && canInteract) {
         // button pressed
 
             if (inRange.gameObject.CompareTag("Special")) {
@@ -131,6 +138,7 @@ public class Hand : MonoBehaviour
             this.gameObject.GetComponent<FixedJoint>().connectedBody = null;
             
         }
+        lastFrametriggerState = cur;
     }
 
     // Resets hand
