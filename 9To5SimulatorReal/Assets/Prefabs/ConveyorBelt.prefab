@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6278787405631238060}
-  - component: {fileID: 5210261568927134815}
   - component: {fileID: 7209854947557962765}
   m_Layer: 0
   m_Name: ConveyorBelt
@@ -34,19 +33,6 @@ Transform:
   - {fileID: 9112182564721406162}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &5210261568927134815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3894934916786306144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b22caa14d119cb14c9560b8e1360fa9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  conveyorForce: -2.95
 --- !u!65 &7209854947557962765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64,7 +50,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.65, y: 0.05, z: 1.85}
   m_Center: {x: 0, y: 0.09, z: -0.04}
@@ -143,6 +129,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a871df54928d2069caa74d0cf13067c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9115662209625264375}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a871df54928d2069caa74d0cf13067c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7006713469497477280}
   m_SourcePrefab: {fileID: 100100000, guid: a871df54928d2069caa74d0cf13067c5, type: 3}
 --- !u!1 &8448516983628655208 stripped
 GameObject:
@@ -156,7 +145,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8448516983628655208}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f7a53fcef427cb9499c020e73ef3b1d1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -170,6 +159,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1, y: 0.11, z: 2}
   m_Center: {x: 0, y: 0, z: -0.05}
+--- !u!114 &7006713469497477280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448516983628655208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22caa14d119cb14c9560b8e1360fa9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conveyorForce: -3
 --- !u!4 &9112182564721406162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a871df54928d2069caa74d0cf13067c5, type: 3}

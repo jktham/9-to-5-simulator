@@ -41,6 +41,8 @@ public class GameBehaviour : MonoBehaviour
             StartCoroutine( StartShift() );
             switchStartShift = false;
             inShift = true;
+            GameObject.Find("PattySpawner").GetComponent<PattySpawn>().start();
+            GameObject.Find("speaker").GetComponent<SpeakerBehaviour>().start();
         }
 
         // update both minutes and hours
