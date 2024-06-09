@@ -10,7 +10,6 @@ public class Hand : MonoBehaviour
 {
     public GameObject inHand;
     public InputActionReference input;
-    public InputActionReference click;
 
     [SerializeField]
     private GameObject otherHand;
@@ -23,7 +22,6 @@ public class Hand : MonoBehaviour
     public Collider inRange;
 
     private bool canInteract = true;
-    private bool switcher = true;
 
     void OnTriggerEnter(Collider other) {
 
@@ -74,7 +72,7 @@ public class Hand : MonoBehaviour
             carry = null;
         }
         // synchronize carry with inRange
-        if (carry != null && inRange == null) inRange = carry;
+        // if (carry != null && inRange == null) inRange = carry;
     }
 
     void FixedUpdate() {
@@ -100,10 +98,6 @@ public class Hand : MonoBehaviour
                     
                     if (!game.win) {
 
-                        if (switcher) {
-                            switcher = false;
-                            game.illegalClockOuts++;
-                        }
                         if (game.illegalClockOuts == 2) {
                             speaker.playSound(4,1);
                         } else if (game.illegalClockOuts >= 3) {
@@ -139,8 +133,6 @@ public class Hand : MonoBehaviour
             this.gameObject.GetComponent<FixedJoint>().connectedBody = null;
             
         }
-
-        switcher = true;
 
     }
 

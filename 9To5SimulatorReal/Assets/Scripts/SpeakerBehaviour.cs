@@ -10,11 +10,13 @@ public class SpeakerBehaviour : MonoBehaviour
     private bool locked = false;
 
     private AudioSource myAudio;
+    private GameBehaviour game;
 
     // Start is called before the first frame update
     void Start()
     {
         myAudio = GetComponent<AudioSource>();
+        game = GameObject.Find("GameController").GetComponent<GameBehaviour>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,9 @@ public class SpeakerBehaviour : MonoBehaviour
             myAudio.clip = clips[index];
             myAudio.PlayDelayed(delay);
             StartCoroutine(Waiting(clips[index].length + delay));
+            if (index == 3 || index == 4) {
+                game.illegalClockOuts++;
+            }
         }
 
     }
