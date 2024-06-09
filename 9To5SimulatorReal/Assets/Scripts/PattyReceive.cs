@@ -97,6 +97,7 @@ public class PattyReceive : MonoBehaviour
         yield return seconds;
         render.material = basic;
         mylight.enabled = false;
+        lightswitching = true;
 
     }
 }

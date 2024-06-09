@@ -3,9 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+public enum Ending
+{
+    fired, success, real
+}
 public class GameBehaviour : MonoBehaviour
 {
 
@@ -16,6 +21,12 @@ public class GameBehaviour : MonoBehaviour
 
     public bool DebugMode = false;
     public bool win = false;
+    public bool end = false;
+    public Ending endingType;
+
+    public AudioMixer mixer;
+
+    public int illegalClockOuts = 0;
 
     [SerializeField]
     InputActionAsset input;
@@ -23,6 +34,10 @@ public class GameBehaviour : MonoBehaviour
     [SerializeField]
     private bool switchStartShift = false;
     public bool inShift = false;
+    [SerializeField]
+    private float clockOutReset;
+
+    SpeakerBehaviour speaker;
 
     protected void OnEnable() {
         input.Enable();
@@ -30,6 +45,10 @@ public class GameBehaviour : MonoBehaviour
 
     void Awake() {
         DontDestroyOnLoad(GameObject.Find("Player"));
+    }
+
+    void Start() {
+        speaker = GameObject.Find("speaker").GetComponent<SpeakerBehaviour>();
     }
 
     // Update is called once per frame
@@ -50,8 +69,25 @@ public class GameBehaviour : MonoBehaviour
         if (!DebugMode) shiftInHours = shiftInMinutes / 60;
 
         // wincondition
-        if (shiftInSeconds >= wincondition || win == true) {
-            ending();
+        if (shiftInSeconds >= wincondition) {
+            win = true;
+            speaker.playSound(6,1);
+        }
+
+        // Sound fadeout
+        if (end) {
+            GameObject.Find("Fridge").GetComponent<AudioSource>().volume -= 0.001f;
+            foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Interactable")) {
+                if (obj.GetComponent<AudioSource>() != null) {
+                    obj.GetComponent<AudioSource>().volume -= 0.001f;
+                }
+            }
+        }
+
+        // Debug instant Win Condition
+        if (DebugMode && win) {
+            ending(endingType);
+            win = false;
         }
     }
 
@@ -59,14 +95,28 @@ public class GameBehaviour : MonoBehaviour
         switchStartShift = true;
     }
 
-    public void endShift() {
+    public void startIllegalClockOutTimer() {
+        StopCoroutine( IllegalClockOutReset(clockOutReset) );
+        StartCoroutine( IllegalClockOutReset(clockOutReset) );
+    }
+
+    public void ending(Ending type) {
+        
         StopCoroutine( StartShift() );
+        end = true;
+        switch (type)
+        {
+            case Ending.fired :
+                StartCoroutine(Fired());
+                break;
+            case Ending.success :
+                StartCoroutine(Success());
+                break;
+        }
+
     }
 
-    private void ending() {
-        SceneManager.LoadScene("Ending");
-    }
-
+    // Counter of seconds
     private IEnumerator StartShift() {
 
         WaitForSeconds second = new WaitForSeconds(1);
@@ -77,6 +127,33 @@ public class GameBehaviour : MonoBehaviour
             yield return second;
 
         }
+    }
+
+    // resets illegalClock timer
+    private IEnumerator IllegalClockOutReset(float resetTime) {
+
+        WaitForSeconds seconds = new WaitForSeconds(resetTime);
+        yield return seconds;
+        illegalClockOuts = 0;
+
+    }
+
+    // ENDING getting fired
+    private IEnumerator Fired() {
+
+        speaker.playSound(5,1);
+        yield return new WaitForSeconds(15);
+        Application.Quit();
+
+    }
+
+    // ENDING success
+    private IEnumerator Success() {
+
+        GameObject.Find("Player").GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(44);
+        Application.Quit();
+
     }
 
 }

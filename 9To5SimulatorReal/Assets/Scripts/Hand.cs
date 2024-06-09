@@ -16,9 +16,12 @@ public class Hand : MonoBehaviour
 
     private GameBehaviour game;
     private Hand otherHandControl;
+    private SpeakerBehaviour speaker;
 
     public Collider carry;
     public Collider inRange;
+
+    private bool canInteract = true;
 
     void OnTriggerEnter(Collider other) {
 
@@ -29,8 +32,15 @@ public class Hand : MonoBehaviour
             inRange = other;
         }
 
-        // Highlight when special in reach
-        if (other.gameObject.CompareTag("Special") && !game.inShift && carry == null) {
+        // Highlight when clock_in in reach
+        if (other.gameObject.name.Equals("clock_in") && !game.inShift && carry == null && canInteract) {
+            Renderer handRender = this.gameObject.GetComponent<Renderer>();
+            handRender.material.SetColor("_Color", Color.yellow);
+            inRange = other;
+        }
+
+        // Highlight when clock_out in reach
+        if (other.gameObject.name.Equals("clock_out") && game.inShift && carry == null && canInteract) {
             Renderer handRender = this.gameObject.GetComponent<Renderer>();
             handRender.material.SetColor("_Color", Color.yellow);
             inRange = other;
@@ -51,6 +61,7 @@ public class Hand : MonoBehaviour
     void Start() {
         game = GameObject.Find("GameController").GetComponent<GameBehaviour>();
         otherHandControl = otherHand.GetComponent<Hand>();
+        speaker = GameObject.Find("speaker").GetComponent<SpeakerBehaviour>();
     }
 
     void Update() {
@@ -64,14 +75,46 @@ public class Hand : MonoBehaviour
     void FixedUpdate() {
 
         // INTERACTION LOGIC
-        if (input.action.ReadValue<float>() == 1.0f && inRange != null && !carry) {
+        if (input.action.ReadValue<float>() == 1.0f && inRange != null && !carry && canInteract) {
         // button pressed
 
             if (inRange.gameObject.CompareTag("Special")) {
-            // ACTIVATE GAME
+            // CLOCK IN OR CLOCK OUT
 
-                game.startShift();
-                resethand();
+                if (inRange.gameObject.name.Equals("clock_in")) {
+
+                    inRange.gameObject.GetComponent<AudioSource>().Play();
+                    game.startShift();
+                    canInteract = false;
+                    resethand();
+                    StartCoroutine( InteractReset(80) );
+
+                } else if (inRange.gameObject.name.Equals("clock_out")) {
+
+                    inRange.gameObject.GetComponent<AudioSource>().Play();
+                    
+                    if (!game.win) {
+
+                        game.illegalClockOuts++;
+                        if (game.illegalClockOuts == 2) {
+                            speaker.playSound(4,1);
+                        } else if (game.illegalClockOuts >= 3) {
+                            game.ending(Ending.fired);
+                        } else {
+                            speaker.playSound(3,1);
+                        }
+                        game.startIllegalClockOutTimer();
+
+                    } else {
+
+                        game.ending(Ending.success);
+
+                    }
+                    canInteract = false;
+                    resethand();
+                    StartCoroutine( InteractReset(1) );
+
+                }
             
             } else if (inRange.gameObject.CompareTag("Interactable")) {
             // GRAB THING
@@ -100,6 +143,15 @@ public class Hand : MonoBehaviour
     // Check if both hands carry the same object
     bool bothHandsSame() {
         return carry != null && (otherHandControl.carry == carry);
+    }
+
+    // prevents from interact 100 times per second
+    private IEnumerator InteractReset(int time) {
+
+        WaitForSeconds seconds = new WaitForSeconds(time);
+        yield return seconds;
+        canInteract = true;
+
     }
 
 }
